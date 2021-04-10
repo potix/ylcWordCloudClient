@@ -1,0 +1,3 @@
+[submodule "ylcWordCloudClient/ylcc"]
+	path = ylcWordCloudClient/ylcc
+	url = https://github.com/potix/ylcc
