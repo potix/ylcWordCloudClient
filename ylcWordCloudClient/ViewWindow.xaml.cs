@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grpc.Net.Client;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -9,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ylccProtocol;
 
 namespace ylcWordCloudClient
 {
@@ -20,6 +22,17 @@ namespace ylcWordCloudClient
         public ViewWindow()
         {
             InitializeComponent();
+        }
+
+        private async void CallGrpc ()
+        {
+            using GrpcChannel channel = GrpcChannel.ForAddress("https://localhost:5001");
+            ylcc.ylccClient client = new ylccProtocol.ylcc.ylccClient(channel);
+            StartCollectionWordCloudMessagesRequest request = new StartCollectionWordCloudMessagesRequest
+            {
+                VideoId = "ssss",
+            };
+            StartCollectionWordCloudMessagesResponse response = await client.StartCollectionWordCloudMessagesAsync(request);
         }
     }
 }

@@ -24,5 +24,62 @@ namespace ylcWordCloudClient
         {
             InitializeComponent();
         }
+
+        private void VideoIdTextBoxChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TargetComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+
+        }
+
+        private void FontMaxSizeTextBoxChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void FontMinSizeTextBoxChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void WidthTextBoxChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void HeightTextBoxChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void BackgroundColorRTextBoxChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void BackgroundColorGTextBoxChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void BackgroundColorBTextBoxChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void BackgroundColorATextBoxChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+
+
+
+
+
     }
 }

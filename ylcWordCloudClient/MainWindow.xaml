@@ -5,7 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ylcWordCloudClient"
         mc:Ignorable="d"
-        Title="ylcWordCloudClient" Height="512" Width="1024">
+        Title="ylcWordCloudClient" Height="450" Width="400">
     <Grid>
+        <Label Content="VideoId" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="112"/>
+        <TextBox Name="VideoIdTextBox" HorizontalAlignment="Left" Height="29" Margin="127,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" TextChanged="VideoIdTextBoxChanged"/>
+
+        <Label Content="Target" HorizontalAlignment="Left" Height="29" Margin="10,44,0,0" VerticalAlignment="Top" Width="112"/>
+        <ComboBox HorizontalAlignment="Left" Margin="127,43,0,0" VerticalAlignment="Top" Width="230" SelectedIndex="0" SelectionChanged="TargetComboBoxSelectionChanged" Height="30">
+            <ComboBoxItem Content="All user" />
+            <ComboBoxItem Content="Owner and moderator" />
+            <ComboBoxItem Content="Owner and moderator and sponsor" />
+        </ComboBox>
+
+        <Label Content="FontMaxSize" HorizontalAlignment="Left" Height="29" Margin="10,78,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
+        <TextBox Name="FontMaxSizeTextBox" HorizontalAlignment="Left" Margin="127,78,0,0" Text="128" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="29" TextChanged="FontMaxSizeTextBoxChanged"/>
+
+        <Label Content="FontMinSize" HorizontalAlignment="Left" Height="29" Margin="10,112,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
+        <TextBox Name="FontMinSizeTextBox" HorizontalAlignment="Left" Margin="127,112,0,0" Text="16" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="29" TextChanged="FontMinSizeTextBoxChanged"/>
+
+        <Label Content="Width" HorizontalAlignment="Left" Height="29" Margin="10,146,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
+        <TextBox Name="WidthTextBox" HorizontalAlignment="Left" Margin="127,146,0,0" Text="1024" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="29" TextChanged="WidthTextBoxChanged"/>
+
+        <Label Content="Heghit" HorizontalAlignment="Left" Height="29" Margin="10,180,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
+        <TextBox Name="HeghitTextBox" HorizontalAlignment="Left" Margin="127,180,0,0" Text="512" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="29" TextChanged="HeightTextBoxChanged"/>
+
+        <Label Content="BackgroundColor" HorizontalAlignment="Left" Height="29" Margin="10,214,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
+        <TextBox Name="BackgroundColorRTextBox" HorizontalAlignment="Left" Margin="127,214,0,0" Text="255" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" Height="29" TextChanged="BackgroundColorRTextBoxChanged"/>
+        <TextBox Name="BackgroundColorGTextBox" HorizontalAlignment="Left" Margin="169,214,0,0" Text="255" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" Height="30" TextChanged="BackgroundColorGTextBoxChanged"/>
+        <TextBox Name="BackgroundColorBTextBox" HorizontalAlignment="Left" Margin="211,214,0,0" Text="255" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" Height="29" TextChanged="BackgroundColorBTextBoxChanged"/>
+        <TextBox Name="BackgroundColorATextBox" HorizontalAlignment="Left" Margin="253,214,0,0" Text="255" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" Height="30" TextChanged="BackgroundColorATextBoxChanged"/>
+
+        <Label Content="Colors" HorizontalAlignment="Left" Height="29" Margin="10,248,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
+        <DataGrid Name="ColorsDataGrid" Margin="127,248,95,62">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="R" Width="40"/>
+                <DataGridTextColumn Header="G" Width="40"/>
+                <DataGridTextColumn Header="B" Width="40"/>
+                <DataGridTextColumn Header="A" Width="40"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Content="Button" HorizontalAlignment="Left" Margin="10,377,0,0" VerticalAlignment="Top" Width="347"/>
+
+
     </Grid>
 </Window>
