@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,65 +21,36 @@ namespace ylcWordCloudClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Setting setting = new Setting();
+
         public MainWindow()
         {
             InitializeComponent();
+            VideoIdTextBox.DataContext = setting;
+            TargetComboBox.DataContext = setting;
+            FontMaxSizeTextBox.DataContext = setting;
+            FontMinSizeTextBox.DataContext = setting;
+            WidthTextBox.DataContext = setting;
+            HeightTextBox.DataContext = setting;
+            BackgroundColorRTextBox.DataContext = setting;
+            BackgroundColorBTextBox.DataContext = setting;
+            BackgroundColorGTextBox.DataContext = setting;
+            BackgroundColorATextBox.DataContext = setting;
+            ColorsDataGrid.DataContext = setting;
+            URITextBOX.DataContext = setting;
         }
 
-        private void VideoIdTextBoxChanged(object sender, TextChangedEventArgs e)
+        private void ConnectButtonClick(object sender, EventArgs e)
         {
-
+            if (setting.VideoId == null || setting.VideoId == "")  {
+                MessageBox.Show("VideoIdが入力されていません");
+                return;
+            }
+            Debug.Print(setting.Dump());
+            ViewWindow viewWindow = new ViewWindow();
+            viewWindow.Show();
+            viewWindow.ViewWordCloud(setting);
         }
-
-        private void TargetComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-
-        }
-
-        private void FontMaxSizeTextBoxChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void FontMinSizeTextBoxChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void WidthTextBoxChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void HeightTextBoxChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void BackgroundColorRTextBoxChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void BackgroundColorGTextBoxChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void BackgroundColorBTextBoxChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void BackgroundColorATextBoxChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-
-
-
 
 
     }

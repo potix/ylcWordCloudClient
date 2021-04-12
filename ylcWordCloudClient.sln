@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ylcWordCloudClient", "ylcWordCloudClient\ylcWordCloudClient.csproj", "{50105A06-E8AB-42AC-B21D-EB77EE5E399F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ylcWordCloudClient", "ylcWordCloudClient\ylcWordCloudClient.csproj", "{50105A06-E8AB-42AC-B21D-EB77EE5E399F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{499E3420-0058-4C33-A65E-883D493D50A3} = {499E3420-0058-4C33-A65E-883D493D50A3}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ylccProtocol", "..\ylccProtocol\ylccProtocol\ylccProtocol.csproj", "{499E3420-0058-4C33-A65E-883D493D50A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{50105A06-E8AB-42AC-B21D-EB77EE5E399F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50105A06-E8AB-42AC-B21D-EB77EE5E399F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50105A06-E8AB-42AC-B21D-EB77EE5E399F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{499E3420-0058-4C33-A65E-883D493D50A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{499E3420-0058-4C33-A65E-883D493D50A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{499E3420-0058-4C33-A65E-883D493D50A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{499E3420-0058-4C33-A65E-883D493D50A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
