@@ -41,6 +41,16 @@ namespace ylcWordCloudClient
             InsecureCheckBox.DataContext = setting;
         }
 
+        private void RemoveColorClick(object sender, EventArgs e)
+        {
+            if (ColorsDataGrid.SelectedIndex == -1)
+            {
+                return;
+            }
+            setting.Colors.Remove(setting.Colors[ColorsDataGrid.SelectedIndex]);
+            ColorsDataGrid.SelectedIndex = -1;
+        }
+
         private void ConnectButtonClick(object sender, EventArgs e)
         {
             if (setting.VideoId == null || setting.VideoId == "")  {

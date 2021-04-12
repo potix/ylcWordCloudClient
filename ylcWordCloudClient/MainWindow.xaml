@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ylcWordCloudClient"
         mc:Ignorable="d"
-        Title="ylcWordCloudClient" Height="520" Width="420">
+        Title="ylcWordCloudClient" Height="520" Width="450">
     <Grid>
 
         <Label Content="VideoId" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="112"/>
         <TextBox Name="VideoIdTextBox" Text="{Binding VideoId}" HorizontalAlignment="Left" Height="29" Margin="127,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" />
 
         <Label Content="Target" HorizontalAlignment="Left" Height="29" Margin="10,44,0,0" VerticalAlignment="Top" Width="112"/>
-        <ComboBox Name="TargetComboBox" HorizontalAlignment="Left" Margin="127,43,0,0" VerticalAlignment="Top" Width="230" Height="30"  ItemsSource="{Binding TargetValues}" SelectedValue="{Binding TargetValue}" DisplayMemberPath="TargetLabel" />
+        <ComboBox Name="TargetComboBox" HorizontalAlignment="Left" Margin="127,43,0,0" VerticalAlignment="Top" Width="219" Height="30"  ItemsSource="{Binding TargetValues}" SelectedValue="{Binding TargetValue}" DisplayMemberPath="TargetLabel" />
 
         <Label Content="FontMaxSize" HorizontalAlignment="Left" Height="29" Margin="10,78,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
         <TextBox Name="FontMaxSizeTextBox" Text="{Binding FontMaxSize}" HorizontalAlignment="Left" Margin="127,78,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="29" />
@@ -37,21 +37,28 @@
         <TextBox Name="BackgroundColorATextBox" Text="{Binding BackgroundColorA}" HorizontalAlignment="Left" Margin="309,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" Height="30" />
 
         <Label Content="Colors" HorizontalAlignment="Left" Height="29" Margin="10,248,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
-        <DataGrid Name="ColorsDataGrid" Margin="128,252,51,110"  ItemsSource="{Binding Colors}" AutoGenerateColumns="False">
+        <DataGrid Name="ColorsDataGrid" Margin="128,252,21,110"  ItemsSource="{Binding Colors}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="R" Width="50" Binding="{Binding R, NotifyOnSourceUpdated=True}" />
                 <DataGridTextColumn Header="G" Width="50" Binding="{Binding G, NotifyOnSourceUpdated=True}" />
                 <DataGridTextColumn Header="B" Width="50" Binding="{Binding B, NotifyOnSourceUpdated=True}" />
                 <DataGridTextColumn Header="A" Width="50" Binding="{Binding A, NotifyOnSourceUpdated=True}" />
+                <DataGridTemplateColumn Width="*" Header="操作">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="削除" Click="RemoveColorClick" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 
         <Label Content="URI" HorizontalAlignment="Left" Height="29" Margin="11,394,0,0" VerticalAlignment="Top" Width="111"/>
-        <TextBox Name="URITextBOX" Text="{Binding URI}" HorizontalAlignment="Left" Margin="130,394,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Height="29"/>
+        <TextBox Name="URITextBOX" Text="{Binding URI}" HorizontalAlignment="Left" Margin="130,394,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Height="29"/>
 
-        <CheckBox Name="InsecureCheckBox" Content="Insecure" HorizontalAlignment="Left" Margin="305,401,0,0" VerticalAlignment="Top" Height="15" Width="69" IsChecked="{Binding IsInsecure}"/>
+        <CheckBox Name="InsecureCheckBox" Content="Insecure" HorizontalAlignment="Left" Margin="360,401,0,0" VerticalAlignment="Top" Height="15" Width="69" IsChecked="{Binding IsInsecure}"/>
 
-        <Button Name="ConnectButton" Content="Connect" HorizontalAlignment="Left" Margin="11,428,0,0" VerticalAlignment="Top" Width="346" Click="ConnectButtonClick" Height="29"/>
-       
+        <Button Name="ConnectButton" Content="Connect" HorizontalAlignment="Left" Margin="11,428,0,0" VerticalAlignment="Top" Width="418" Click="ConnectButtonClick" Height="29"/>
+
     </Grid>
 </Window>
