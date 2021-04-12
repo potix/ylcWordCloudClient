@@ -1,8 +1,12 @@
-﻿using Grpc.Net.Client;
+﻿using Grpc.Core;
+using Grpc.Net.Client;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -31,30 +35,37 @@ namespace ylcWordCloudClient
 
         private void SetPngImage(byte[] pngImageData)
         {
+            Debug.Print("Length:" + pngImageData.Length);
             using (var mem = new MemoryStream(pngImageData))
             {
                 mem.Position = 0;
-                PngBitmapDecoder decoder = new PngBitmapDecoder(mem, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
-                BitmapSource bitmapSource = decoder.Frames[0];
+                BitmapSource bitmapSource = BitmapFrame.Create(mem, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
                 WordCloudImage.Source = bitmapSource;
-                WordCloudImage.Stretch = Stretch.None;
             }
         }
 
-        public void ViewWordCloud(Setting setting)
+        private void WindowClosing(object sender, CancelEventArgs e)
         {
+            isClosed = true;
+        }
+
+        public async void ViewWordCloud(Setting setting)
+        {
+            this.Width = setting.Width + 40;
+            this.Height = setting.Height + 50;
+            WordCloudImage.Width = setting.Width + 20;
+            WordCloudImage.Height = setting.Height + 20;
             try
             {
-
-                this.Width = setting.Width;
-                this.Height = setting.Height + 16;
-                WordCloudImage.Width = setting.Width;
-                WordCloudImage.Height = setting.Height;
-                using GrpcChannel channel = GrpcChannel.ForAddress(setting.URI);
+                if (setting.IsInsecure)
+                {
+                    AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+                }
+                GrpcChannel channel = GrpcChannel.ForAddress(setting.URI);
                 ylcc.ylccClient client = new ylcc.ylccClient(channel);
                 YlccProtocol protocol = new YlccProtocol();
                 StartCollectionWordCloudMessagesRequest startCollectionWordCloudMessagesRequest = protocol.BuildStartCollectionWordCloudMessagesRequest(setting.VideoId);
-                StartCollectionWordCloudMessagesResponse startCollectionWordCloudMessagesResponse = client.StartCollectionWordCloudMessages(startCollectionWordCloudMessagesRequest);
+                StartCollectionWordCloudMessagesResponse startCollectionWordCloudMessagesResponse = await client.StartCollectionWordCloudMessagesAsync(startCollectionWordCloudMessagesRequest);
                 if (startCollectionWordCloudMessagesResponse.Status.Code != Code.Success && startCollectionWordCloudMessagesResponse.Status.Code != Code.InProgress)
                 {
                     StringBuilder sb = new StringBuilder();
@@ -77,8 +88,12 @@ namespace ylcWordCloudClient
                         setting.FontMinSize,
                         setting.Colors,
                         setting.GetBackgroundColor());
-                    GetWordCloudResponse getWordCloudResponse = client.GetWordCloud(getWordCloudRequest);
-                    if (getWordCloudResponse.Status.Code != Code.Success)
+
+                    Debug.Print("request:" + getWordCloudRequest.ToString());
+
+                    GetWordCloudResponse getWordCloudResponse = await client.GetWordCloudAsync(getWordCloudRequest);
+
+                    if (getWordCloudResponse.Status.Code != Code.Success && getWordCloudResponse.Status.Code != Code.InProgress)
                     {
                         StringBuilder sb = new StringBuilder();
                         sb.Append("通信エラー\n");
@@ -89,13 +104,20 @@ namespace ylcWordCloudClient
                         this.Close();
                         break;
                     }
+                    if  (getWordCloudResponse.Status.Code == Code.InProgress)
+                    {
+                        await Task.Delay(5000);
+                        continue;
+                    }
+                    Debug.Print("MineType:" + getWordCloudResponse.MimeType);
                     if (getWordCloudResponse.MimeType == "image/png")
                     {
                         this.SetPngImage(getWordCloudResponse.Data.ToByteArray());
                     }
+                    await Task.Delay(5000);
                 }
             }
-            catch (Grpc.Core.RpcException e)
+            catch (Exception e)
             {
                 StringBuilder sb = new StringBuilder();
                 sb.Append("通信エラー\n");

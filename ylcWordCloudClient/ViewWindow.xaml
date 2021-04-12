@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ylcWordCloudClient"
         mc:Ignorable="d"
-        Title="ylcWordCloudClient" Height="528" Width="1024">
+        Closing="WindowClosing" 
+        Title="ylcWordCloudClient" Height="532" Width="1024">
     <Grid>
-        <Image Name="WordCloudImage" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top"/>
+        <Image Name="WordCloudImage" Stretch="None"  Margin="0,0,0,0" HorizontalAlignment="Left"   VerticalAlignment="Top"  Height="512" Width="1024" />
     </Grid>
 </Window>

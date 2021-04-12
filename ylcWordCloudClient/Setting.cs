@@ -38,6 +38,8 @@ namespace ylcWordCloudClient
 
         public string URI { get; set; }
 
+        public bool IsInsecure { get; set; }
+
         public Setting()
         {
             TargetValues = new ObservableCollection<TargetValue>();
@@ -53,15 +55,16 @@ namespace ylcWordCloudClient
             BackgroundColorR = 255;
             BackgroundColorG = 255;
             BackgroundColorB = 255;
-            BackgroundColorA = 200;
+            BackgroundColorA = 255;
             Colors = new ObservableCollection<Color>();
-            Colors.Add(new Color() { R = 255, G = 0, B = 0, A = 255});
-            Colors.Add(new Color() { R = 0, G = 255, B = 0, A = 255});
-            Colors.Add(new Color() { R = 0, G = 0, B = 255, A = 255});
-            Colors.Add(new Color() { R = 255, G = 255, B = 0, A = 255 });
-            Colors.Add(new Color() { R = 0, G = 255, B = 255, A = 255 });
-            Colors.Add(new Color() { R = 255, G = 0, B = 255, A = 255 });
-            URI = "https://127.0.0.1:12345";
+            Colors.Add(new Color() { R = 220, G = 0, B = 0, A = 255 });
+            Colors.Add(new Color() { R = 0, G = 220, B = 0, A = 255 });
+            Colors.Add(new Color() { R = 0, G = 0, B = 220, A = 255 });
+            Colors.Add(new Color() { R = 220, G = 220, B = 0, A = 255 });
+            Colors.Add(new Color() { R = 0, G = 220, B = 220, A = 255 });
+            Colors.Add(new Color() { R = 220, G = 0, B = 220, A = 255 });
+            URI = "http://127.0.0.1:12345";
+            IsInsecure = true;
         }
 
         public Color GetBackgroundColor()

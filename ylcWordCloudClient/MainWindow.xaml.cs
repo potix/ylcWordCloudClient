@@ -38,6 +38,7 @@ namespace ylcWordCloudClient
             BackgroundColorATextBox.DataContext = setting;
             ColorsDataGrid.DataContext = setting;
             URITextBOX.DataContext = setting;
+            InsecureCheckBox.DataContext = setting;
         }
 
         private void ConnectButtonClick(object sender, EventArgs e)
@@ -46,12 +47,10 @@ namespace ylcWordCloudClient
                 MessageBox.Show("VideoIdが入力されていません");
                 return;
             }
-            Debug.Print(setting.Dump());
             ViewWindow viewWindow = new ViewWindow();
             viewWindow.Show();
             viewWindow.ViewWordCloud(setting);
         }
-
 
     }
 }
