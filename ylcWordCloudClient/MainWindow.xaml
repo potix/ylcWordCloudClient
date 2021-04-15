@@ -5,39 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ylcWordCloudClient"
         mc:Ignorable="d"
-        Title="ylcWordCloudClient" Height="520" Width="450">
+        ResizeMode="CanMinimize"
+        Title="ylcWordCloudClient" Height="560" Width="450">
     <Grid>
 
         <Label Content="VideoId" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="112"/>
-        <TextBox Name="VideoIdTextBox" Text="{Binding VideoId}" HorizontalAlignment="Left" Height="29" Margin="127,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" />
+        <TextBox Name="VideoIdTextBox" Text="{Binding VideoId}" HorizontalAlignment="Left" Height="29" Margin="126,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" />
 
-        <Label Content="Target" HorizontalAlignment="Left" Height="29" Margin="10,44,0,0" VerticalAlignment="Top" Width="112"/>
-        <ComboBox Name="TargetComboBox" HorizontalAlignment="Left" Margin="127,43,0,0" VerticalAlignment="Top" Width="219" Height="30"  ItemsSource="{Binding TargetValues}" SelectedValue="{Binding TargetValue}" DisplayMemberPath="TargetLabel" />
+        <Label Content="Target" HorizontalAlignment="Left" Height="29" Margin="10,42,0,0" VerticalAlignment="Top" Width="112"/>
+        <ComboBox Name="TargetComboBox" HorizontalAlignment="Left" Margin="126,42,0,0" VerticalAlignment="Top" Width="219" Height="30"  ItemsSource="{Binding TargetValues}" SelectedValue="{Binding TargetValue}" DisplayMemberPath="TargetLabel" />
 
-        <Label Content="FontMaxSize" HorizontalAlignment="Left" Height="29" Margin="10,78,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
-        <TextBox Name="FontMaxSizeTextBox" Text="{Binding FontMaxSize}" HorizontalAlignment="Left" Margin="127,78,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="29" />
+        <Label Content="MessageLimit" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Width="111" RenderTransformOrigin="-0.516,0.733" Height="29"/>
+        <TextBox Name="MessageLimitTextBox" Text="{Binding MessageLimit}" HorizontalAlignment="Left" Margin="126,76,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="29" />
 
-        <Label Content="FontMinSize" HorizontalAlignment="Left" Height="29" Margin="10,112,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
-        <TextBox Name="FontMinSizeTextBox" Text="{Binding FontMinSize}" HorizontalAlignment="Left" Margin="127,112,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="29" />
+        <Label Content="FontMaxSize" HorizontalAlignment="Left" Height="29" Margin="10,110,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
+        <TextBox Name="FontMaxSizeTextBox" Text="{Binding FontMaxSize}" HorizontalAlignment="Left" Margin="126,110,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="29" />
 
-        <Label Content="Width" HorizontalAlignment="Left" Height="29" Margin="10,146,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
-        <TextBox Name="WidthTextBox" Text="{Binding Width}" HorizontalAlignment="Left" Margin="127,146,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="29" />
+        <Label Content="FontMinSize" HorizontalAlignment="Left" Height="29" Margin="10,144,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
+        <TextBox Name="FontMinSizeTextBox" Text="{Binding FontMinSize}" HorizontalAlignment="Left" Margin="126,144,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="29" />
 
-        <Label Content="Heghit" HorizontalAlignment="Left" Height="29" Margin="10,180,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
-        <TextBox Name="HeightTextBox" Text="{Binding Height}" HorizontalAlignment="Left" Margin="127,180,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="29" />
+        <Label Content="Width" HorizontalAlignment="Left" Height="29" Margin="10,178,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
+        <TextBox Name="WidthTextBox" Text="{Binding Width}" HorizontalAlignment="Left" Margin="126,178,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="29" />
 
-        <Label Content="BackgroundColor" HorizontalAlignment="Left" Height="29" Margin="10,214,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
-        <Label Content="R" HorizontalAlignment="Left" Height="29" Margin="127,215,0,0" VerticalAlignment="Top" Width="18"/>
-        <TextBox Name="BackgroundColorRTextBox" Text="{Binding BackgroundColorR}" HorizontalAlignment="Left" Margin="145,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="36" Height="29" />
-        <Label Content="G" HorizontalAlignment="Left" Height="29" Margin="181,215,0,0" VerticalAlignment="Top" Width="18"/>
-        <TextBox Name="BackgroundColorGTextBox" Text="{Binding BackgroundColorG}" HorizontalAlignment="Left" Margin="199,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" Height="30" />
-        <Label Content="B" HorizontalAlignment="Left" Height="29" Margin="236,215,0,0" VerticalAlignment="Top" Width="18"/>
-        <TextBox Name="BackgroundColorBTextBox" Text="{Binding BackgroundColorB}" HorizontalAlignment="Left" Margin="254,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" Height="29" />
-        <Label Content="A" HorizontalAlignment="Left" Height="29" Margin="291,215,0,0" VerticalAlignment="Top" Width="18"/>
-        <TextBox Name="BackgroundColorATextBox" Text="{Binding BackgroundColorA}" HorizontalAlignment="Left" Margin="309,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" Height="30" />
+        <Label Content="Heghit" HorizontalAlignment="Left" Height="29" Margin="10,212,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
+        <TextBox Name="HeightTextBox" Text="{Binding Height}" HorizontalAlignment="Left" Margin="126,212,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="29" />
 
-        <Label Content="Colors" HorizontalAlignment="Left" Height="29" Margin="10,248,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
-        <DataGrid Name="ColorsDataGrid" Margin="128,252,21,110"  ItemsSource="{Binding Colors}" AutoGenerateColumns="False">
+        <Label Content="BackgroundColor" HorizontalAlignment="Left" Height="29" Margin="9,248,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
+        <Label Content="R" HorizontalAlignment="Left" Height="29" Margin="126,249,0,0" VerticalAlignment="Top" Width="18"/>
+        <TextBox Name="BackgroundColorRTextBox" Text="{Binding BackgroundColorR}" HorizontalAlignment="Left" Margin="144,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="36" Height="29" />
+        <Label Content="G" HorizontalAlignment="Left" Height="29" Margin="180,249,0,0" VerticalAlignment="Top" Width="18"/>
+        <TextBox Name="BackgroundColorGTextBox" Text="{Binding BackgroundColorG}" HorizontalAlignment="Left" Margin="198,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" Height="30" />
+        <Label Content="B" HorizontalAlignment="Left" Height="29" Margin="235,249,0,0" VerticalAlignment="Top" Width="18"/>
+        <TextBox Name="BackgroundColorBTextBox" Text="{Binding BackgroundColorB}" HorizontalAlignment="Left" Margin="253,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" Height="29" />
+        <Label Content="A" HorizontalAlignment="Left" Height="29" Margin="290,249,0,0" VerticalAlignment="Top" Width="18"/>
+        <TextBox Name="BackgroundColorATextBox" Text="{Binding BackgroundColorA}" HorizontalAlignment="Left" Margin="308,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" Height="30" />
+
+        <Label Content="Colors" HorizontalAlignment="Left" Height="29" Margin="9,282,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
+        <DataGrid Name="ColorsDataGrid" Margin="127,286,22,107"  ItemsSource="{Binding Colors}" AutoGenerateColumns="False" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="R" Width="50" Binding="{Binding R, NotifyOnSourceUpdated=True}" />
                 <DataGridTextColumn Header="G" Width="50" Binding="{Binding G, NotifyOnSourceUpdated=True}" />
@@ -53,12 +57,12 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Label Content="URI" HorizontalAlignment="Left" Height="29" Margin="11,394,0,0" VerticalAlignment="Top" Width="111"/>
-        <TextBox Name="URITextBOX" Text="{Binding URI}" HorizontalAlignment="Left" Margin="130,394,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Height="29"/>
+        <Label Content="URI" HorizontalAlignment="Left" Height="29" Margin="10,437,0,0" VerticalAlignment="Top" Width="111"/>
+        <TextBox Name="URITextBOX" Text="{Binding URI}" HorizontalAlignment="Left" Margin="126,437,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Height="29"/>
 
-        <CheckBox Name="InsecureCheckBox" Content="Insecure" HorizontalAlignment="Left" Margin="360,401,0,0" VerticalAlignment="Top" Height="15" Width="69" IsChecked="{Binding IsInsecure}"/>
+        <CheckBox Name="InsecureCheckBox" Content="Insecure" HorizontalAlignment="Left" Margin="357,443,0,0" VerticalAlignment="Top" Height="15" Width="69" IsChecked="{Binding IsInsecure}"/>
 
-        <Button Name="ConnectButton" Content="Connect" HorizontalAlignment="Left" Margin="11,428,0,0" VerticalAlignment="Top" Width="418" Click="ConnectButtonClick" Height="29"/>
+        <Button Name="ConnectButton" Content="Connect" HorizontalAlignment="Left" Margin="8,471,0,0" VerticalAlignment="Top" Width="418" Click="ConnectButtonClick" Height="29"/>
 
     </Grid>
 </Window>

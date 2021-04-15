@@ -82,6 +82,7 @@ namespace ylcWordCloudClient
                     GetWordCloudRequest getWordCloudRequest = protocol.BuildGetWordCloudRequest(
                         setting.VideoId,
                         setting.TargetValue.Target,
+                        setting.MessageLimit,
                         setting.Width,
                         setting.Height,
                         setting.FontMaxSize,

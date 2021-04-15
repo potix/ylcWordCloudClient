@@ -28,6 +28,7 @@ namespace ylcWordCloudClient
             InitializeComponent();
             VideoIdTextBox.DataContext = setting;
             TargetComboBox.DataContext = setting;
+            MessageLimitTextBox.DataContext = setting;
             FontMaxSizeTextBox.DataContext = setting;
             FontMinSizeTextBox.DataContext = setting;
             WidthTextBox.DataContext = setting;
