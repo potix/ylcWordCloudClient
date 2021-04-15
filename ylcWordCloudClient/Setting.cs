@@ -50,7 +50,7 @@ namespace ylcWordCloudClient
             TargetValues.Add(new TargetValue { TargetLabel = "owner and moderator and sponsor", Target = Target.OwnerModeratorSponsor });
             TargetValues.Add(new TargetValue { TargetLabel = "owner and moderator", Target = Target.OwnerModerator });
             TargetValue = defaultTargetValue;
-            MessageLimit = 20;
+            MessageLimit = 25;
             FontMaxSize = 128;
             FontMinSize = 16;
             Width = 1024;
