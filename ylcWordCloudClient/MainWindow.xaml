@@ -31,26 +31,24 @@
         <TextBox Name="HeightTextBox" Text="{Binding Height}" HorizontalAlignment="Left" Margin="126,212,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="29" />
 
         <Label Content="BackgroundColor" HorizontalAlignment="Left" Height="29" Margin="9,248,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
-        <Label Content="R" HorizontalAlignment="Left" Height="29" Margin="126,249,0,0" VerticalAlignment="Top" Width="18"/>
-        <TextBox Name="BackgroundColorRTextBox" Text="{Binding BackgroundColorR}" HorizontalAlignment="Left" Margin="144,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="36" Height="29" />
-        <Label Content="G" HorizontalAlignment="Left" Height="29" Margin="180,249,0,0" VerticalAlignment="Top" Width="18"/>
-        <TextBox Name="BackgroundColorGTextBox" Text="{Binding BackgroundColorG}" HorizontalAlignment="Left" Margin="198,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" Height="30" />
-        <Label Content="B" HorizontalAlignment="Left" Height="29" Margin="235,249,0,0" VerticalAlignment="Top" Width="18"/>
-        <TextBox Name="BackgroundColorBTextBox" Text="{Binding BackgroundColorB}" HorizontalAlignment="Left" Margin="253,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" Height="29" />
-        <Label Content="A" HorizontalAlignment="Left" Height="29" Margin="290,249,0,0" VerticalAlignment="Top" Width="18"/>
-        <TextBox Name="BackgroundColorATextBox" Text="{Binding BackgroundColorA}" HorizontalAlignment="Left" Margin="308,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" Height="30" />
+        <TextBox Name="BackgroundColorTextBox" Text="{Binding BackgroundColor}" HorizontalAlignment="Left" Margin="126,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="102" Height="29" />
+        <Border Name="BackgroundColorBorder"  Background="{Binding BackgroundColor}" BorderThickness="1" BorderBrush="Black" Width="29" Height="29"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="233,248,0,0"/>
 
-        <Label Content="Colors" HorizontalAlignment="Left" Height="29" Margin="9,282,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
-        <DataGrid Name="ColorsDataGrid" Margin="127,286,22,107"  ItemsSource="{Binding Colors}" AutoGenerateColumns="False" >
+        <Label Content="FontColors" HorizontalAlignment="Left" Height="29" Margin="9,282,0,0" VerticalAlignment="Top" Width="112" RenderTransformOrigin="0.502,-0.082"/>
+        <DataGrid Name="FontColorsDataGrid" Margin="127,286,22,107"  ItemsSource="{Binding FontColors}" AutoGenerateColumns="False" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="R" Width="50" Binding="{Binding R, NotifyOnSourceUpdated=True}" />
-                <DataGridTextColumn Header="G" Width="50" Binding="{Binding G, NotifyOnSourceUpdated=True}" />
-                <DataGridTextColumn Header="B" Width="50" Binding="{Binding B, NotifyOnSourceUpdated=True}" />
-                <DataGridTextColumn Header="A" Width="50" Binding="{Binding A, NotifyOnSourceUpdated=True}" />
-                <DataGridTemplateColumn Width="*" Header="操作">
+                <DataGridTextColumn Header="color" Width="100" Binding="{Binding Color, NotifyOnSourceUpdated=True}" />
+                <DataGridTemplateColumn Width="60" Header="sample">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="削除" Click="RemoveColorClick" />
+                            <Canvas Background="{Binding Color}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*" Header="action">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="remove" Click="RemoveColorClick" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

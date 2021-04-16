@@ -33,23 +33,21 @@ namespace ylcWordCloudClient
             FontMinSizeTextBox.DataContext = setting;
             WidthTextBox.DataContext = setting;
             HeightTextBox.DataContext = setting;
-            BackgroundColorRTextBox.DataContext = setting;
-            BackgroundColorBTextBox.DataContext = setting;
-            BackgroundColorGTextBox.DataContext = setting;
-            BackgroundColorATextBox.DataContext = setting;
-            ColorsDataGrid.DataContext = setting;
+            BackgroundColorTextBox.DataContext = setting;
+            BackgroundColorBorder.DataContext = setting;
+            FontColorsDataGrid.DataContext = setting;
             URITextBOX.DataContext = setting;
             InsecureCheckBox.DataContext = setting;
         }
 
         private void RemoveColorClick(object sender, EventArgs e)
         {
-            if (ColorsDataGrid.SelectedIndex == -1)
+            if (FontColorsDataGrid.SelectedIndex == -1)
             {
                 return;
             }
-            setting.Colors.Remove(setting.Colors[ColorsDataGrid.SelectedIndex]);
-            ColorsDataGrid.SelectedIndex = -1;
+            setting.FontColors.Remove(setting.FontColors[FontColorsDataGrid.SelectedIndex]);
+            FontColorsDataGrid.SelectedIndex = -1;
         }
 
         private void ConnectButtonClick(object sender, EventArgs e)

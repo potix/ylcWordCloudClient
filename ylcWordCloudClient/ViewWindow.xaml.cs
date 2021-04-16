@@ -87,7 +87,7 @@ namespace ylcWordCloudClient
                         setting.Height,
                         setting.FontMaxSize,
                         setting.FontMinSize,
-                        setting.Colors,
+                        setting.GetFontColors(),
                         setting.GetBackgroundColor());
 
                     Debug.Print("request:" + getWordCloudRequest.ToString());

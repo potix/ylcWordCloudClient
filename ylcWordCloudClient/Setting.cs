@@ -12,6 +12,12 @@ namespace ylcWordCloudClient
         public Target Target { get; set; }
     }
 
+    public class FontColor
+    {
+        public string Color { get; set; }
+    }
+
+
     public class Setting
     {
 
@@ -31,12 +37,9 @@ namespace ylcWordCloudClient
 
         public int Height { get; set; }
 
-        public uint BackgroundColorR { get; set; }
-        public uint BackgroundColorG { get; set; }
-        public uint BackgroundColorB { get; set; }
-        public uint BackgroundColorA { get; set; }
+        public string BackgroundColor { get; set; }
 
-        public ObservableCollection<Color> Colors { get; set; }
+        public ObservableCollection<FontColor> FontColors { get; set; }
 
         public string URI { get; set; }
 
@@ -55,29 +58,45 @@ namespace ylcWordCloudClient
             FontMinSize = 16;
             Width = 1024;
             Height = 512;
-            BackgroundColorR = 255;
-            BackgroundColorG = 255;
-            BackgroundColorB = 255;
-            BackgroundColorA = 255;
-            Colors = new ObservableCollection<Color>();
-            Colors.Add(new Color() { R = 220, G = 0, B = 0, A = 255 });
-            Colors.Add(new Color() { R = 0, G = 220, B = 0, A = 255 });
-            Colors.Add(new Color() { R = 0, G = 0, B = 220, A = 255 });
-            Colors.Add(new Color() { R = 220, G = 220, B = 0, A = 255 });
-            Colors.Add(new Color() { R = 0, G = 220, B = 220, A = 255 });
-            Colors.Add(new Color() { R = 220, G = 0, B = 220, A = 255 });
+            BackgroundColor = "#FFFFFF";
+            FontColors = new ObservableCollection<FontColor>();
+            FontColors.Add(new FontColor() { Color = "#D00000" });
+            FontColors.Add(new FontColor() { Color = "#00D000" });
+            FontColors.Add(new FontColor() { Color = "#0000D0" });
+            FontColors.Add(new FontColor() { Color = "#D0D000" });
+            FontColors.Add(new FontColor() { Color = "#00D0D0" });
+            FontColors.Add(new FontColor() { Color = "#D000D0" });
             URI = "http://127.0.0.1:12345";
             IsInsecure = true;
         }
 
+        public Collection<Color> GetFontColors()
+        {
+            Collection<Color> colors = new Collection<Color>();
+            foreach (FontColor fontColor in FontColors)
+            {
+                System.Drawing.Color dColor = System.Drawing.ColorTranslator.FromHtml(fontColor.Color);
+                colors.Add(new Color()
+                {
+                    R = dColor.R,
+                    G = dColor.G,
+                    B = dColor.B,
+                    A = dColor.A,
+                });
+            }
+            return colors;
+
+        }
+
         public Color GetBackgroundColor()
         {
+            System.Drawing.Color dColor = System.Drawing.ColorTranslator.FromHtml(BackgroundColor);           
             return new Color()
             {
-                R = BackgroundColorR,
-                G = BackgroundColorG,
-                B = BackgroundColorB,
-                A = BackgroundColorA,
+                R = dColor.R,
+                G = dColor.G,
+                B = dColor.B,
+                A = dColor.A,
             };
         }
 
@@ -90,11 +109,10 @@ namespace ylcWordCloudClient
             sb.Append("FontMinSize: " + FontMinSize + "\n");
             sb.Append("Width: " + Width + "\n");
             sb.Append("Height: " + Height + "\n");
-            sb.Append("BackgroundColor: " + BackgroundColorR +"," + BackgroundColorG + ","  + BackgroundColorB + ","  + BackgroundColorA + "," + "\n");
-            foreach (var color in Colors)
+            sb.Append("BackgroundColor: "  + BackgroundColor + "\n");
+            foreach (var fontColor in FontColors)
             {
-                sb.Append("Color" + Colors.IndexOf(color) + ": " + color.R + "," + color.G + "," + color.B + "," + color.A + "," + "\n");
-
+                sb.Append("Color" + FontColors.IndexOf(fontColor) + ": " + fontColor.Color + "\n");
             }
             return sb.ToString();
         }
