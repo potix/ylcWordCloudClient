@@ -60,12 +60,12 @@ namespace ylcWordCloudClient
             Height = 512;
             BackgroundColor = "#FFFFFF";
             FontColors = new ObservableCollection<FontColor>();
-            FontColors.Add(new FontColor() { Color = "#D00000" });
-            FontColors.Add(new FontColor() { Color = "#00D000" });
-            FontColors.Add(new FontColor() { Color = "#0000D0" });
-            FontColors.Add(new FontColor() { Color = "#D0D000" });
-            FontColors.Add(new FontColor() { Color = "#00D0D0" });
-            FontColors.Add(new FontColor() { Color = "#D000D0" });
+            FontColors.Add(new FontColor() { Color = "#DF0000" });
+            FontColors.Add(new FontColor() { Color = "#00DF00" });
+            FontColors.Add(new FontColor() { Color = "#0000DF" });
+            FontColors.Add(new FontColor() { Color = "#DFDF00" });
+            FontColors.Add(new FontColor() { Color = "#00DFDF" });
+            FontColors.Add(new FontColor() { Color = "#DF00DF" });
             URI = "http://127.0.0.1:12345";
             IsInsecure = true;
         }
