@@ -52,7 +52,7 @@ namespace ylcWordCloudClient
         public async void ViewWordCloud(Setting setting)
         {
             this.Width = setting.Width + 40;
-            this.Height = setting.Height + 50;
+            this.Height = setting.Height + 40;
             WordCloudImage.Width = setting.Width + 20;
             WordCloudImage.Height = setting.Height + 20;
             try
