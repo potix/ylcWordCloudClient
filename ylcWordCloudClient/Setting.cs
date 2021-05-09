@@ -20,6 +20,7 @@ namespace ylcWordCloudClient
 
     public class Setting
     {
+        private readonly YlccProtocol protocol = new YlccProtocol();
 
         public string VideoId { get; set; }
 
@@ -75,14 +76,7 @@ namespace ylcWordCloudClient
             Collection<Color> colors = new Collection<Color>();
             foreach (FontColor fontColor in FontColors)
             {
-                System.Drawing.Color dColor = System.Drawing.ColorTranslator.FromHtml(fontColor.Color);
-                colors.Add(new Color()
-                {
-                    R = dColor.R,
-                    G = dColor.G,
-                    B = dColor.B,
-                    A = dColor.A,
-                });
+                colors.Add(protocol.BuildColor(fontColor.Color));
             }
             return colors;
 
@@ -90,14 +84,7 @@ namespace ylcWordCloudClient
 
         public Color GetBackgroundColor()
         {
-            System.Drawing.Color dColor = System.Drawing.ColorTranslator.FromHtml(BackgroundColor);           
-            return new Color()
-            {
-                R = dColor.R,
-                G = dColor.G,
-                B = dColor.B,
-                A = dColor.A,
-            };
+            return protocol.BuildColor(BackgroundColor);
         }
 
         public string Dump()

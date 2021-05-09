@@ -9,7 +9,7 @@
   <Identity
     Name="bb0dd8f0-8033-4d08-b060-0a592227d49e"
     Publisher="CN=Hiroyuki"
-    Version="1.0.7.0" />
+    Version="1.0.9.0" />
 
   <Properties>
     <DisplayName>ylcWordCloudClientWapProj</DisplayName>

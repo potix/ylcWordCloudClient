@@ -26,6 +26,7 @@ namespace ylcWordCloudClient
     {
 
         private volatile bool isClosed;
+        private readonly YlccProtocol protocol = new YlccProtocol();
 
         public ViewWindow()
         {
@@ -63,7 +64,6 @@ namespace ylcWordCloudClient
                 }
                 GrpcChannel channel = GrpcChannel.ForAddress(setting.URI);
                 ylcc.ylccClient client = new ylcc.ylccClient(channel);
-                YlccProtocol protocol = new YlccProtocol();
                 StartCollectionWordCloudMessagesRequest startCollectionWordCloudMessagesRequest = protocol.BuildStartCollectionWordCloudMessagesRequest(setting.VideoId);
                 StartCollectionWordCloudMessagesResponse startCollectionWordCloudMessagesResponse = await client.StartCollectionWordCloudMessagesAsync(startCollectionWordCloudMessagesRequest);
                 if (startCollectionWordCloudMessagesResponse.Status.Code != Code.Success && startCollectionWordCloudMessagesResponse.Status.Code != Code.InProgress)
@@ -89,11 +89,8 @@ namespace ylcWordCloudClient
                         setting.FontMinSize,
                         setting.GetFontColors(),
                         setting.GetBackgroundColor());
-
-                    Debug.Print("request:" + getWordCloudRequest.ToString());
-
+                    // Debug.Print("request:" + getWordCloudRequest.ToString());
                     GetWordCloudResponse getWordCloudResponse = await client.GetWordCloudAsync(getWordCloudRequest);
-
                     if (getWordCloudResponse.Status.Code != Code.Success && getWordCloudResponse.Status.Code != Code.InProgress)
                     {
                         StringBuilder sb = new StringBuilder();
@@ -110,7 +107,7 @@ namespace ylcWordCloudClient
                         await Task.Delay(5000);
                         continue;
                     }
-                    Debug.Print("MineType:" + getWordCloudResponse.MimeType);
+                    //Debug.Print("MineType:" + getWordCloudResponse.MimeType);
                     if (getWordCloudResponse.MimeType == "image/png")
                     {
                         this.SetPngImage(getWordCloudResponse.Data.ToByteArray());
